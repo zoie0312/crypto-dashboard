@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import Sidebar from './components/Sidebar';
+import Sidebar from './components/sideBar/Sidebar';
+import MainDash from './components/mainDash/MainDash';
 
 function App() {
     return (
@@ -8,7 +9,8 @@ function App() {
             
             <div className="AppGlass">
               <Sidebar/>
-              <div></div>
+              <MainDash/>
+
               <div></div>
             </div>
         </div>
