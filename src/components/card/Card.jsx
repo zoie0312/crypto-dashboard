@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import './Card.css';
-import { AnimateSharedLayout } from 'framer-motion';
+import { motion, AnimateSharedLayout } from 'framer-motion';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import ReactApexChart from 'react-apexcharts'
+import ReactApexChart from 'react-apexcharts';
+import {UilTimes} from '@iconscout/react-unicons'
 
-const CompactCard = ({param}) => {
+const CompactCard = ({param, setExpanded}) => {
     const {
         png: Png,
+        title,
         barValue,
         value,
         series,
@@ -33,14 +35,17 @@ const CompactCard = ({param}) => {
         }
     }
     return (
-        <div className="CompactCard"
+        <motion.div 
+            className="CompactCard"
             style={{
                 background: color.backGround,
                 boxShadow: color.boxShadow
             }}
+            onClick={setExpanded}
+            layoutId='expandableCard'
         >
             
-            <div className="chartContainer" >
+            <div className="barChart" >
                 <CircularProgressbar
                     value={barValue}
                     text={`${barValue}%`}
@@ -52,10 +57,98 @@ const CompactCard = ({param}) => {
                 <span>${value}</span>
                 <span>Last 24 hours</span>
             </div>
-        </div>
+        </motion.div>
         
     );
 };
+
+const ExpandedCard = function ({param, setExpanded}) {
+    const {
+        color,
+        title,
+        series
+    } = param;
+
+    const data = {
+        options: {
+            chart: {
+                type: 'area',
+                height: 'auto'
+            },
+            dropShadow: {
+                enabled: true,
+                enabledOnSeries: undefined,
+                top: 0,
+                left: 0,
+                blur: 3,
+                color: '#000',
+                opacity: 0.35
+            },
+            fill: {
+                colors: ['#fff'],
+                type: 'gradient'
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth',
+                colors: ['white']
+            },
+            tooltip: {
+                x: {
+                    format: 'dd/MM/yy HH:mm'
+                }
+            },
+            grid: {
+                show: true
+            },
+            xaxis: {
+                type: 'datetime',
+                categories: [
+                    '2021-09-10T00:00:00.000Z',
+                    '2021-09-10T01:30:00.000Z',
+                    '2021-09-10T02:30:00.000Z',
+                    '2021-09-10T03:30:00.000Z',
+                    '2021-09-10T04:30:00.000Z',
+                    '2021-09-10T05:30:00.000Z',
+                    '2021-09-10T06:30:00.000Z',
+                ]
+            }
+        }
+    }
+    return (
+        <motion.div className="ExpandedCard"
+            style={{
+                background: color.backGround,
+                boxShadow: color.boxShadow
+            }}
+            onClick={setExpanded}
+            layoutId='expandableCard'
+        >
+            <div
+                style={{
+                    alignSelf: 'flex-end',
+                    cursor: 'pointer',
+                    color: 'white'
+                }}
+            >
+                <UilTimes 
+                    onClick={setExpanded}
+                />
+            </div>
+            <span>{title}</span>
+            <div className="chartContainer">
+                <ReactApexChart
+                    series={series}
+                    type='area'
+                    options={data.options}
+                />
+            </div>
+            <span>Last 24 hours</span> 
+        </motion.div>
+    );
+}
 
 function Card(props) {
     const [expanded, setExpanded] = useState(false);
@@ -63,11 +156,10 @@ function Card(props) {
     return (
         <AnimateSharedLayout>
             {
-                expanded ? (
-                    'Expanded'//<ExpandedCard/>
-                ) : (
-                    <CompactCard param={props}/>
-                )
+                expanded ? 
+                    <ExpandedCard param={props} setExpanded={() => setExpanded(false)}/>: 
+                    <CompactCard param={props} setExpanded={() => setExpanded(true)}/>
+                
             }
         </AnimateSharedLayout>
     );
