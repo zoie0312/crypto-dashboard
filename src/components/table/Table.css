@@ -23,3 +23,20 @@ th {
 .details {
     color: rgb(76, 131, 227) !important;
 }
+
+@media screen and (max-width: 1200px) {
+    .Table {
+        width: 170%;
+        margin-top: 3rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .Table{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 25rem;
+      }
+}

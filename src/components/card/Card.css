@@ -84,3 +84,20 @@
 .chartContainer {
     width: 70%;
 }
+
+@media screen and (max-width: 1200px) {
+    .ExpandedCard {
+        height: 60vh;
+        top: 2rem;
+        left: 6rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .ExpandedCard {
+        height: 50%;
+        top: 8rem;
+        left: 15px;
+        width: 80%;
+    }
+}
