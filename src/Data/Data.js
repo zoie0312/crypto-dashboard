@@ -84,23 +84,37 @@ import {
     },
  ];
 
- export const UpdatesData = [
+ export const NewsData = [
+    // {
+    //   img: img1,
+    //   name: "Andrew Thomas",
+    //   noti: "has ordered Apple smart watch 2500mh battery.",
+    //   time: "25 seconds ago",
+    // },
+    // {
+    //   img: img2,
+    //   name: "James Bond",
+    //   noti: "has received Samsung gadget for charging battery.",
+    //   time: "30 minutes ago",
+    // },
+    // {
+    //   img: img3,
+    //   name: "Iron Man",
+    //   noti: "has ordered Apple smart watch, samsung Gear 2500mh battery.",
+    //   time: "2 hours ago",
+    // },
     {
-      img: img1,
-      name: "Andrew Thomas",
-      noti: "has ordered Apple smart watch 2500mh battery.",
-      time: "25 seconds ago",
+        "title": "What can Eric Adams do? The limits of turning New York City into a crypto hub",
+        "desc": "Despite the limitations of his office, the mayor-elect of New York could leverage his agenda-setting power to the benefit of both crypto and city residents. ",
+        "image": "https://images.cointelegraph.com/images/840_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMTEvMmY5ZWYxNWItMjZlMC00YTNkLThhOTktOGQ0N2EyNjBmMjFhLmpwZw==.jpg",
+        "url": "https://cointelegraph.com/news/what-can-eric-adams-do-the-limits-of-turning-new-york-city-into-a-crypto-hub",
+        "date": "Mon, 15 Nov 2021 16:30:00"
     },
     {
-      img: img2,
-      name: "James Bond",
-      noti: "has received Samsung gadget for charging battery.",
-      time: "30 minutes ago",
-    },
-    {
-      img: img3,
-      name: "Iron Man",
-      noti: "has ordered Apple smart watch, samsung Gear 2500mh battery.",
-      time: "2 hours ago",
-    },
+        "title": "Nasdaq-listed Bitcoin mining firm Marathon to raise $500M in debt",
+        "desc": "Marathon’s stock hit a six-year high in early November, with the firm accumulating $460 million worth of Bitcoin.",
+        "image": "https://images.cointelegraph.com/images/840_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMTEvZWMyYzFjMDEtMGQ1MC00MWI1LTkxNjktNTZkNjJhYThkYzZiLmpwZw==.jpg",
+        "url": "https://cointelegraph.com/news/nasdaq-listed-bitcoin-mining-firm-marathon-to-raise-500m-in-debt",
+        "date": "Mon, 15 Nov 2021 15:45:00"
+    }
   ];
