@@ -32,7 +32,7 @@ import {
   };
 
   const useCryptoNews = (initialData) => {
-    const [running, setRunning] = useState(true);
+    const [running, setRunning] = useState(false);
     console.log('useCryptoNews called');
     const [state, dispatch] = useReducer(dataFetchReducer, {
         isLoading: false,

@@ -11,7 +11,7 @@ function RightSide() {
             <News/>
         </div>
         <div>
-            <h3>Customer Review</h3>
+            <h3>Total Value in USD</h3>
             <CustomerReview/>
         </div>
     </div>
